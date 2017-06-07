@@ -13,17 +13,13 @@ da FATEC - Mogi das Cruzes.
 Após clonar o repositório entre na pasta do projeto
 
 ```
-
 $ cd SistemaComandas
-
 ```
 
 Rode o comando:
 
 ```
-
 $ mvn jetty:run
-
 ```
 
 Acesse o endereço `localhost:8080` no navegador
