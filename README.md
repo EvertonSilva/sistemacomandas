@@ -13,7 +13,7 @@ da FATEC - Mogi das Cruzes.
 Após clonar o repositório entre na pasta do projeto
 
 ```
-$ cd SistemaComandas
+$ cd sistemacomandas
 ```
 
 Rode o comando:
