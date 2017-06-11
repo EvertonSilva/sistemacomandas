@@ -1,4 +1,5 @@
 CREATE TABLE orders (
-  ID int NOT NULL,
-  total DOUBLE
+  id BIGINT NOT NULL AUTO_INCREMENT,
+  total DOUBLE,
+  PRIMARY KEY (id)
 );
