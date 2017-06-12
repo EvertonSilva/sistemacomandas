@@ -42,6 +42,7 @@
                 <version>4.2.0</version>
                 <configuration>
                     <url>jdbc:h2:file:/home/everton/tmp/data/sistemacomandas</url>
+                    <user>sa</user>
                 </configuration>
             </plugin>
 

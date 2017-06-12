@@ -11,7 +11,7 @@ public class ConnectionFactory {
 
     public Connection getConnection() {
         try {
-            return DriverManager.getConnection("jdbc:h2:~/tmp/data/sistemacomandas");
+            return DriverManager.getConnection("jdbc:h2:~/tmp/data/sistemacomandas", "sa", "");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

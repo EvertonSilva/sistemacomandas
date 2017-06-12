@@ -19,7 +19,7 @@ public class OrderDao {
         this.conn = new ConnectionFactory().getConnection();
     }
 
-    public void inserir(Order order) {
+    public void insert(Order order) {
         // sql string
         String sql = "insert into orders " +
                 "(total, dateOrdered, createdAt, updatedAt)" +
@@ -34,6 +34,10 @@ public class OrderDao {
             stmt.setDate(2, new Date(order.getOrderedDate().getTimeInMillis()));
             stmt.setDate(3, new Date(Calendar.getInstance().getTimeInMillis()));
             stmt.setDate(4, new Date(Calendar.getInstance().getTimeInMillis()));
+
+            // execute query
+            stmt.execute();
+            stmt.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
