@@ -62,7 +62,8 @@ public class OrderDao {
                 // set date
                 date.setTime(result.getDate("dateOrdered"));
                 order.setOrderedDate(date);
-
+                // set id
+                order.setId(result.getLong("id"));
                 // set total
                 order.setTotal(result.getDouble("total"));
 
