@@ -4,27 +4,106 @@
     <meta charset="UTF-8">
     <title>Teste do app</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <style>
+        #quantity {
+            margin-right: 20px;
+            width: 30%;
+        }
+        .btn-wrapper {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <nav class="white" role="navigation">
         <div class="nav-wrapper container">
             <a href="#!" class="brand-logo black-text">Logo</a>
             <ul class="right">
-                <li><a href="#!" class="black-text">Navbar Link</a></li>
+                <li><a href="#!" class="black-text">Inicio</a></li>
             </ul>
         </div>
     </nav>
-    <div id="index-banner" class="section">
-        <div class="container">
-            <h1 class="header center">Página de teste</h1>
-            <div class="row center">
+    <div class="section">
+        <!--<div class="container">
+            <h1 class="header">Sistema de Comandas</h1>
+            <div class="row">
                 <h2 class="header col s12 light">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, quod!
                 </h2>
             </div>
-            <div class="row center">
+            <div class="row right">
                 <a href="#!" class="btn-large">Iniciar</a>
+            </div>
+        </div>-->
+        <div class="container">
+            <h1>Número da comanda: <small>#1001</small></h1>
+            <div class="row">
+                <div class="col m5">
+                    <form action="#!">
+                        <fieldset>
+                            <legend>Cadastrar pedido</legend>
+
+                            <label for="code">Código:</label>
+                            <input type="text" id="code" placeholder="código do produto">
+
+                            <label for="product">Nome:</label>
+                            <input type="text" id="product" placeholder="buscar por nome">
+
+                            <label for="quantity">Quantidade:</label>
+                            <input type="number" id="quantity">
+                        </fieldset>
+
+                        <div class="btn-wrapper">
+                            <button class="btn-floating right" type="submit">
+                                <i class="material-icons">add</i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col m6 right">
+                    <table id="price-table">
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                                <th>Valor (R$)</th>
+                                <th>Qtde</th>
+                                <th>Subtotal</th>
+                                <th>Remover</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Coxinha</td>
+                                <td>3,50</td>
+                                <td>1</td>
+                                <td>3,50</td>
+                                <td><a href="#1" class="black-text"><i class="material-icons">delete</i></a></td>
+                            </tr>
+                            <tr>
+                                <td>Refrigerante</td>
+                                <td>4,50</td>
+                                <td>1</td>
+                                <td>4,50</td>
+                                <td><a href="#1" class="black-text"><i class="material-icons">delete</i></a></td>
+                            </tr>
+                            <tr>
+                                <td>Sobremesa</td>
+                                <td>6,00</td>
+                                <td>1</td>
+                                <td>6,00</td>
+                                <td><a href="#1" class="black-text"><i class="material-icons">delete</i></a></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4"><strong>Total:</strong> R$ 14,00</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <button class="btn" value="1001">Fechar pedido</button>
+                </div>
             </div>
         </div>
     </div>
