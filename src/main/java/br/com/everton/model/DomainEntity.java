@@ -11,12 +11,12 @@ public abstract class DomainEntity {
     /**
      * Primary key
      */
-    private Long id;
+    protected Long id;
 
     /**
      * Timestamp for creation date
      * and last update date
      */
-    private Calendar createdAt;
-    private Calendar updatetedAt;
+    protected Calendar createdAt;
+    protected Calendar updatetedAt;
 }

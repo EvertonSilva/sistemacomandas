@@ -1,6 +1,6 @@
 package br.com.everton.persistence.dao;
 
-import br.com.everton.model.Order;
+import br.com.everton.model.order.Order;
 import br.com.everton.persistence.ConnectionFactory;
 
 import java.sql.*;
@@ -37,7 +37,7 @@ public class OrderDao {
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             // set values
-            stmt.setDouble(1, order.getTotal());
+            stmt.setDouble(1, order.getTotalAmount());
             stmt.setDate(2, new Date(order.getOrderedDate().getTimeInMillis()));
             stmt.setDate(3, new Date(Calendar.getInstance().getTimeInMillis()));
             stmt.setDate(4, new Date(Calendar.getInstance().getTimeInMillis()));
@@ -65,7 +65,7 @@ public class OrderDao {
                 // set id
                 order.setId(result.getLong("id"));
                 // set total
-                order.setTotal(result.getDouble("total"));
+                order.setTotalAmount(result.getDouble("total"));
 
                 orders.add(order);
             }
