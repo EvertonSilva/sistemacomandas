@@ -1,6 +1,6 @@
 CREATE TABLE orders (
   id BIGINT NOT NULL AUTO_INCREMENT,
-  total DOUBLE,
+  totalAmount DOUBLE,
   dateOrdered DATETIME,
   createdAt DATETIME,
   updatedAt DATETIME,
