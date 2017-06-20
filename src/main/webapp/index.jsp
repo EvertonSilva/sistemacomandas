@@ -15,6 +15,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+        <style>
+            fieldset {
+                margin-bottom: 1em;
+            }
+        </style>
     </head>
     <body>
         <nav class="white" role="navigation">
@@ -27,61 +32,49 @@
         </nav>
         <div class="section">
             <div class="container">
-                <h1>Número da comanda: <small>#1001</small></h1>
                 <div class="row">
-                    <div class="col m5">
+                    <h3>Produtos desta comanda</h3>
+                    <div class="col m12">
+                        <ul class="collection">
+                            <li class="collection-item avatar">
+                                <i class="material-icons circle">shop</i>
+                                <span class="title">Produto</span>
+                                <p>Preço: R$0,00</p>
+                                <p>Quantidade: 0</p>
+                                <a href="#!" class="secondary-content"><i class="material-icons">delete</i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col m8">
                         <form action="#!">
                             <fieldset>
-                                <legend>Cadastrar pedido</legend>
+                                <legend>Cadastrar novo item</legend>
 
-                                <label for="code">Código:</label>
+                                <label for="code">Comanda:</label>
+                                <input type="text" id="order-card" placeholder="número da comanda">
+
+                                <label for="code">Código do Produto:</label>
                                 <input type="text" id="code" placeholder="código do produto">
 
-                                <label for="product">Nome:</label>
+                                <label for="product">Nome do Produto:</label>
                                 <input type="text" id="product" placeholder="buscar por nome">
 
                                 <label for="quantity">Quantidade:</label>
                                 <input type="number" id="quantity">
                             </fieldset>
-
-                            <div class="btn-wrapper">
-                                <button class="btn-floating right" type="submit">
-                                    <i class="material-icons">add</i>
-                                </button>
-                            </div>
+                            <button class="btn" type="submit">Salvar!</button>
                         </form>
                     </div>
-                    <div class="col m6">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Produto</th>
-                                    <th>Valor (R$)</th>
-                                    <th>Qtde</th>
-                                    <th>Subtotal</th>
-                                    <th>Remover</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <%-- instancia um objeto dao --%>
-                                <jsp:useBean id="dao" class="br.com.everton.persistence.dao.OrderDao" />
-                                <c:forEach var="order" items="${dao.list}" varStatus="itr">
-                                    <tr>
-                                        <td>${order.id}</td>
-                                        <td>${order.total}</td>
-                                        <td>
-                                            <fmt:formatDate value="${order.orderedDate.time}"
-                                                            pattern="dd/MM/yyyy HH:mm" />
-                                        </td>
-                                    </tr>
-                                </c:forEach>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td colspan="4"><strong>Total:</strong> R$ 14,00</td>
-                                </tr>
-                            </tfoot>
-                        </table>
+                    <div class="col m4">
+                        <h5>Nome do Produto</h5>
+                        <p>R$0,00</p>
+                        <div class="btn-wrapper">
+                            <button class="btn-floating" title="Adicionar produto à lista">
+                                <i class="material-icons">add</i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
