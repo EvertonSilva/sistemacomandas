@@ -38,7 +38,7 @@ public class OrderDao {
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             // set values
-            stmt.setDouble(1, order.getTotalAmount().doubleValue());
+            stmt.setBigDecimal(1, order.getTotalAmount());
             stmt.setDate(2, new Date(order.getOrderedDate().getTimeInMillis()));
             stmt.setDate(3, new Date(Calendar.getInstance().getTimeInMillis()));
             stmt.setDate(4, new Date(Calendar.getInstance().getTimeInMillis()));
@@ -66,8 +66,8 @@ public class OrderDao {
                 // set id
                 order.setId(result.getLong("id"));
                 // set total
-                order.setTotalAmount(new BigDecimal(result.getDouble("total")));
 
+                order.setTotalAmount(result.getBigDecimal("total"));
                 orders.add(order);
             }
 
