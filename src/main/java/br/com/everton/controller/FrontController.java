@@ -1,5 +1,8 @@
 package br.com.everton.controller;
 
+import br.com.everton.model.OrdersCard;
+import br.com.everton.model.order.Product;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +25,10 @@ public class FrontController extends HttpServlet {
         String prodCode = req.getParameter("prodCode");
         String prodQuantity = req.getParameter("prodQuantity");
 
-        // TODO buscar produto no banco - DAO produto
+        Facade facade = new Facade();
+
+        Product prod = facade.findProduct(Long.valueOf(prodCode));
+
         // TODO buscar comanda no banco - DAO comanda
         // TODO instanciar um item de pedido
         // TODO adicionar produto ao novo item de pedido
