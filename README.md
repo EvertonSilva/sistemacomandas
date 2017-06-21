@@ -24,6 +24,4 @@ Utilize o comando:
 $ mvn jetty:run
 ```
 
-Acesse o endereço `localhost:8080` no navegador
-
-
+Acesse o endereço `localhost:8080/sistemacomandas` no navegador
