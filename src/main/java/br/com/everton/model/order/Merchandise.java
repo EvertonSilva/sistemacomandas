@@ -13,10 +13,10 @@ public abstract class Merchandise extends DomainEntity {
     /**
      * Product name
      */
-    private String name;
+    protected String name;
 
     /**
      * Product price
      */
-    private BigDecimal price;
+    protected BigDecimal price;
 }
