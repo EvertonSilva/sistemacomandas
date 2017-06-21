@@ -11,19 +11,10 @@ import java.sql.SQLException;
 /**
  * Created by everton on 21/06/17.
  */
-public class ProductDAO {
-    private Connection conn;
+public class ProductDAO extends AbstractDAO {
 
     public ProductDAO() {
-        this.conn = new ConnectionFactory().getConnection();
-    }
-
-    public void closeConn() {
-        try {
-            conn.close();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        super.openConnection();
     }
 
     public Product getProduct(Long id) {

@@ -12,11 +12,10 @@ import java.util.List;
 /**
  * Created by everton on 11/06/17.
  */
-public class OrderDao {
-    private Connection conn;
+public class OrderDao extends AbstractDAO {
 
     public OrderDao() {
-        this.conn = new ConnectionFactory().getConnection();
+        super.openConnection();
     }
 
     public void closeConn() {
