@@ -21,15 +21,16 @@ public class FrontController extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String orderCardNumber = req.getParameter("orderCard");
+        String ordersCardNumber = req.getParameter("orderCard");
         String prodCode = req.getParameter("prodCode");
         String prodQuantity = req.getParameter("prodQuantity");
 
         Facade facade = new Facade();
 
         Product prod = facade.findProduct(Long.valueOf(prodCode));
+        OrdersCard ordersCard = facade.findOrdersCard(ordersCardNumber);
+        // TODO validar se a comanda já tem um pedido - OrderDAO
 
-        // TODO buscar comanda no banco - DAO comanda
         // TODO instanciar um item de pedido
         // TODO adicionar produto ao novo item de pedido
         // TODO adicionar item de pedido à lista de items do pedido da comanda
