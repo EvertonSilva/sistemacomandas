@@ -1,19 +1,19 @@
 package br.com.everton.persistence.dao;
 
 import br.com.everton.model.DomainEntity;
-import br.com.everton.model.order.Order;
+import br.com.everton.model.order.Product;
 
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.Calendar;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
- * Class to persist Order data
+ * Class to persist Products data
  */
-public class OrderDao extends AbstractDao {
+public class ProductDao extends AbstractDao {
 
-    public OrderDao() {
+    public ProductDao() {
         super.openConnection();
     }
 

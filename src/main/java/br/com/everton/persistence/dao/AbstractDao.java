@@ -8,7 +8,7 @@ import java.sql.SQLException;
 /**
  * Created by everton on 21/06/17.
  */
-public abstract class AbstractDAO {
+public abstract class AbstractDao implements IDAO {
     protected Connection conn;
 
     public void closeConnection() {
