@@ -1,42 +1,51 @@
 package br.com.everton.controller;
 
-import br.com.everton.model.OrdersCard;
-import br.com.everton.model.order.Product;
+import br.com.everton.control.GetOrdersCard;
+import br.com.everton.control.ICommand;
+import br.com.everton.control.IViewHelper;
+import br.com.everton.control.OrdersCardVh;
+import br.com.everton.model.DomainEntity;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by everton on 20/06/17.
  */
-@WebServlet(name = "FrontController", urlPatterns = {"/cadastrarItem"})
+@WebServlet(name = "FrontController", urlPatterns = {"/consultarComanda"})
 public class FrontController extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    private Map<String, ICommand> commands;
+    private Map<String, IViewHelper> vhs;
+
+    public FrontController() {
+        commands = new HashMap<String, ICommand>();
+        commands.put("CONSULTAR_COMANDA", new GetOrdersCard());
+
+        vhs = new HashMap<String, IViewHelper>();
+        vhs.put("/sistemacommandas/consultarComanda", new OrdersCardVh());
+    }
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String ordersCardNumber = req.getParameter("orderCard");
-        String prodCode = req.getParameter("prodCode");
-        String prodQuantity = req.getParameter("prodQuantity");
+        String uri = req.getRequestURI();
+        IViewHelper vh = vhs.get(uri);
 
-        Facade facade = new Facade();
+        String action = req.getParameter("action");
+        ICommand cmd = commands.get(action.toUpperCase());
 
-        Product prod = facade.findProduct(Long.valueOf(prodCode));
-        OrdersCard ordersCard = facade.findOrdersCard(ordersCardNumber);
-        // TODO validar se a comanda já tem um pedido - OrderDAO
+        DomainEntity entity = vh.getEntity(req);
+        Object obj = cmd.execute(entity);
 
-        // TODO instanciar um item de pedido
-        // TODO adicionar produto ao novo item de pedido
-        // TODO adicionar item de pedido à lista de items do pedido da comanda
-        // TODO salvar pedido
-
-        RequestDispatcher rd = req.getRequestDispatcher("/index.jsp");
-        rd.forward(req, resp);
+        vh.setView(obj, req, resp);
     }
 }

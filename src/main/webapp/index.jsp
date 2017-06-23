@@ -52,7 +52,7 @@
                 </div>--%>
                 <div class="row">
                     <div class="col m8">
-                        <form action="cadastrarItem" method="post">
+                        <form action="consultarComanda" method="post">
                             <fieldset>
                                 <legend>Cadastrar novo item</legend>
 
@@ -65,7 +65,7 @@
                                 <label for="prodQuantity">Quantidade:</label>
                                 <input id="prodQuantity" name="prodQuantity" type="number">
                             </fieldset>
-                            <button class="btn" type="submit">Incluir item</button>
+                            <button class="btn" type="submit" name="action" value="CONSULTAR_COMANDA">Incluir item</button>
                         </form>
                     </div>
                     <%--<div class="col m4">
