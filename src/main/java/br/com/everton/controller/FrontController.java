@@ -31,7 +31,7 @@ public class FrontController extends HttpServlet {
         commands.put("CONSULTAR_COMANDA", new GetOrdersCard());
 
         vhs = new HashMap<String, IViewHelper>();
-        vhs.put("/sistemacommandas/consultarComanda", new OrdersCardVh());
+        vhs.put("/sistemacomandas/consultarComanda", new OrdersCardVh());
     }
 
     @Override
